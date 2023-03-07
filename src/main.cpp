@@ -1,9 +1,15 @@
 #include <iostream>
 #include "controller.h"
 #include "game.h"
+#include "helper.h"
 
 int main()
 {
+    Helper helper;
+    double diff = -1.0;
+    while (diff < 0){
+      helper.ReadUserInput(diff);
+    }
     constexpr std::size_t kFramesPerSecond{60};
     constexpr std::size_t kMsPerFrame{1000 / kFramesPerSecond};
     constexpr std::size_t kScreenWidth{640};
@@ -42,7 +48,7 @@ int main()
 
     Controller controller;
     Game game(kGridWidth, kGridHeight);
-    game.Run(controller, staticRenderer, playRenderer, kMsPerFrame);
+    game.Run(controller, staticRenderer, playRenderer, kMsPerFrame, diff);
     std::cout << "Game has terminated successfully!\n";
     std::cout << "Score: " << game.GetScore() << "\n";
     std::cout << "Size: " << game.GetSize() << "\n";

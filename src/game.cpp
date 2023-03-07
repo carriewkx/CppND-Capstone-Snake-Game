@@ -11,12 +11,13 @@ Game::Game(std::size_t grid_width, std::size_t grid_height)
 }
 
 void Game::Run(Controller const &controller, StaticRenderer &staticRenderer, PlayRenderer &playRenderer,
-               std::size_t target_frame_duration)
+               std::size_t target_frame_duration, double diff)
 {
   Uint32 title_timestamp = SDL_GetTicks();
   Uint32 frame_start;
   Uint32 frame_end;
   Uint32 frame_duration;
+  snake.speed += diff;
   int frame_count = 0;
   bool running = true;
 

@@ -13,7 +13,7 @@ class Game
 public:
   Game(std::size_t grid_width, std::size_t grid_height);
   void Run(Controller const &controller, StaticRenderer &staticRenderer, PlayRenderer &playRenderer,
-           std::size_t target_frame_duration);
+           std::size_t target_frame_duration, double diff);
   int GetScore() const;
   int GetSize() const;
 
